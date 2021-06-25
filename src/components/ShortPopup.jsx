@@ -4,7 +4,7 @@ function ShortPopup({ items }) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [activeItem, setActiveItem] = React.useState(0);
   const sortRef = React.useRef();
-  const activeLabel = items[activeItem];
+  const activeLabel = items[activeItem].name;
 
   const toogleVisiblePopup = () => {
     setVisiblePopup(!visiblePopup);
@@ -15,7 +15,7 @@ function ShortPopup({ items }) {
       setVisiblePopup(false);
     }
   };
-  
+
   const onSelectItem = (index) => {
     setActiveItem(index);
     setVisiblePopup(false);
@@ -30,7 +30,7 @@ function ShortPopup({ items }) {
     <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
-        className = {visiblePopup ? 'rotate' : ''}
+          className={visiblePopup ? 'rotate' : ''}
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -49,13 +49,13 @@ function ShortPopup({ items }) {
         <div className="sort__popup">
           <ul>
             {items &&
-              items.map((name, index) => (
+              items.map((obj, index) => (
                 <li
                   onClick={() => onSelectItem(index)}
                   className={activeItem === index ? "active" : ""}
-                  key={`${name}_${index}`}
+                  key={`${obj.type}_${index}`}
                 >
-                  {name}
+                  {obj.name}
                 </li>
               ))}
           </ul>

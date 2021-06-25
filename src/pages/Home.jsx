@@ -1,7 +1,7 @@
 import React from "react";
 import { Categories, ShortPopup, PizzaBlock } from "../components";
 
-function Home({items}) {
+function Home({ items }) {
   return (
     <div className="container">
       <div className="content__top">
@@ -9,16 +9,16 @@ function Home({items}) {
           onClick={(name) => console.log(name)}
           items={["Мясные", "Вегитарианские", "Гриль", "Острые", "Закрытые"]}
         />
-        <ShortPopup items={["популярности", "цене", "алфавиту"]} />
+        <ShortPopup items={[{ name: "популярности", type: 'popular' }, { name: "цене", type: 'price' }, { name: "алфавиту", type: 'alphabet' }]} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {
-          items.map( obj =>  <PizzaBlock key={obj.id} {...obj} /> )
+          items.map(obj => <PizzaBlock key={obj.id} {...obj} />)
         }
-       
 
-       </div>
+
+      </div>
     </div>
   );
 }

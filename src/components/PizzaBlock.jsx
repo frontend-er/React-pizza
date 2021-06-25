@@ -3,11 +3,11 @@ import classNames from "classnames";
 
 function PizzaBlock({ name, imageUrl, price, types, sizes }) {
   const availableTypes = ["тонкое", "традиционное"];
-  const availableSize = [26, 30,40];
+  const availableSize = [26, 30, 40];
 
   const [activeType, setActiveTipe] = React.useState(types[0]);
   const [activeSize, setActiveSize] = React.useState(sizes[0]);
-  
+
 
 
   const onSelectType = (index) => {
@@ -26,11 +26,11 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
         <ul>
           {availableTypes.map((type, index) => (
             <li
-            key={type}
+              key={type}
               onClick={() => onSelectType(index)}
               className={classNames({
-                active : activeType === index,
-                disabled : !types.includes(index),
+                active: activeType === index,
+                disabled: !types.includes(index),
 
 
               })}
@@ -41,13 +41,13 @@ function PizzaBlock({ name, imageUrl, price, types, sizes }) {
           ))}
         </ul>
         <ul>
-        {availableSize.map((size, index) => (
+          {availableSize.map((size, index) => (
             <li
-            key={size}
+              key={size}
               onClick={() => onSelectSize(index)}
               className={classNames({
-                active : activeSize === index,
-                disabled : !sizes.includes(size),
+                active: activeSize === index,
+                disabled: !sizes.includes(size),
 
 
               })}
