@@ -30,7 +30,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3000/db.json').then(({ data }) => {
 
-      store.dispatch(setPizzas(data.pizzas))
+      this.props.setPizzas(data.pizzas)
     });
   }
 
@@ -56,4 +56,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+
+export default connect(mapStateToProps, { setPizzas })(App);
