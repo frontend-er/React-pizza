@@ -1,12 +1,22 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Categories, ShortPopup, PizzaBlock } from "../components";
 
-function Home({ items }) {
+import { setCategory } from '../redux/action/filters';
+
+function Home() {
+  const dispatch = useDispatch();
+  const items = useSelector(({ pizzas }) => pizzas.items);
+
+  const onSelectCategory = index => {
+    dispatch(setCategory(index));
+  }
+  setCategory(5)
   return (
     <div className="container">
       <div className="content__top">
         <Categories
-          onClick={(name) => console.log(name)}
+          onClick={onSelectCategory}
           items={["Мясные", "Вегитарианские", "Гриль", "Острые", "Закрытые"]}
         />
         <ShortPopup items={[{ name: "популярности", type: 'popular' }, { name: "цене", type: 'price' }, { name: "алфавиту", type: 'alphabet' }]} />
