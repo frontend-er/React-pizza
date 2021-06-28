@@ -4,6 +4,10 @@ import { Categories, ShortPopup, PizzaBlock } from "../components";
 
 import { setCategory } from '../redux/action/filters';
 
+
+const categoryNames = ["Мясные", "Вегитарианские", "Гриль", "Острые", "Закрытые"];
+
+const sortNames = [{ name: "популярности", type: 'popular' }, { name: "цене", type: 'price' }, { name: "алфавиту", type: 'alphabet' }]
 function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
@@ -17,9 +21,9 @@ function Home() {
       <div className="content__top">
         <Categories
           onClick={onSelectCategory}
-          items={["Мясные", "Вегитарианские", "Гриль", "Острые", "Закрытые"]}
+          items={categoryNames}
         />
-        <ShortPopup items={[{ name: "популярности", type: 'popular' }, { name: "цене", type: 'price' }, { name: "алфавиту", type: 'alphabet' }]} />
+        <ShortPopup items={sortNames} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">

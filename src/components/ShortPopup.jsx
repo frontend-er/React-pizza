@@ -1,6 +1,6 @@
 import React from "react";
 
-function ShortPopup({ items }) {
+const ShortPopup = React.memo(function ShortPopup({ items }) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const [activeItem, setActiveItem] = React.useState(0);
   const sortRef = React.useRef();
@@ -64,5 +64,5 @@ function ShortPopup({ items }) {
     </div>
   );
 }
-
+)
 export default ShortPopup;
